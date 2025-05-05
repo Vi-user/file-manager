@@ -27,10 +27,9 @@ export function isDirExists(path) {
 export function isFileExists(path) {
   try {
     fs.lstatSync(path).isFile();
-    console.log('im here isFileExists');
     return true;
   } catch (e) {
-    console.log(`${fileName} is not a file or missed in the ${dirName}`);
+    console.log(`Operation Failed. This is not a file or missed in the directory, ${e.message}`);
     return false;
   }
 }

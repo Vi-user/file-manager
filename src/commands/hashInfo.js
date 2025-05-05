@@ -10,9 +10,7 @@ export const hashInfo = async (pathToFile, curPath) => {
 
   try {
     if (isFileExists(resPath)) {
-      console.log('waiting for a data');
       const data = await fsAsync.readFile(resPath, {encoding: 'utf-8'});
-      console.log('DATA', data);
       const hash = createHash('sha256')
         .update(data, 'utf8')
         .digest('hex');
