@@ -12,6 +12,7 @@ import { mkdir } from "./commands/mkdir.js";
 import { osinfo } from "./commands/os.js";
 import { hashInfo } from "./commands/hashInfo.js";
 import { remove } from "./commands/remove.js";
+import * as compresser from "./commands/compress.js";
 
 
 const HOMEDIR = os.userInfo().homedir;
@@ -117,6 +118,22 @@ export async function worker() {
           return;
         }
         await hashInfo(params[0], curPath);
+        output.write(`You are currently in ${curPath}.\n`);
+        break;
+      case 'compress':
+        if (params.length != 2) {
+          output.write(`Invalid input - parametr is missing or to many args are given.\nYou are currently in ${curPath}.\n`);
+          return;
+        }
+        await compresser.compress(params[0], params[1], curPath);
+        output.write(`You are currently in ${curPath}.\n`);
+        break;
+      case 'decompress':
+        if (params.length != 2) {
+          output.write(`Invalid input - parametr is missing or to many args are given.\nYou are currently in ${curPath}.\n`);
+          return;
+        }
+        await compresser.decompress(params[0], params[1], curPath);
         output.write(`You are currently in ${curPath}.\n`);
         break;
       case '.exit':

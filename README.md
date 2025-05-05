@@ -7,4 +7,4 @@ code in the development branch
 - [x] Basic operations with files (cat, add, mkdir, rm)
 - [x] Operating system info (prints following information in console)
 - [x] Hash calculation
-- [ ] Compress and decompress operations
+- [x] Compress and decompress operations
